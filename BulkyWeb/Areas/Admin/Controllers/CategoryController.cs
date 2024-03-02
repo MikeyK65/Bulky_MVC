@@ -2,11 +2,10 @@
 using Bulky.DataAccess.Repository.IRepository;
 using Bulky.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.Reflection.Metadata.Ecma335;
 
-namespace BulkyWeb.Controllers
+namespace BulkyWeb.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -61,7 +60,7 @@ namespace BulkyWeb.Controllers
                 return NotFound();   // Or return error page
             }
 
-            Category? category = _unitOfWork.CategoryRepo.Get(u=>u.Id==id);
+            Category? category = _unitOfWork.CategoryRepo.Get(u => u.Id == id);
 
             if (category == null)
             {
@@ -116,7 +115,7 @@ namespace BulkyWeb.Controllers
             _unitOfWork.Save();
             TempData["success"] = "Category deleted successfully";
             return RedirectToAction("Index", "Category");
-            
+
         }
 
     }
