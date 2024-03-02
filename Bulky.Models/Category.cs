@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
-namespace BulkyWeb.Models
+namespace Bulky.Models
 {
     public class Category
     {
@@ -14,7 +14,7 @@ namespace BulkyWeb.Models
         [DisplayName("Category Name")]
         public string Name { get; set; }
         [DisplayName("Display Order")]
-        [Range(1,100,ErrorMessage ="Display Order Must be less than 100")]
+        [Range(1, 100, ErrorMessage = "Display Order Must be less than 100")]
         public int DisplayOrder { get; set; }
 
     }
